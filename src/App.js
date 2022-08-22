@@ -50,7 +50,7 @@ export default function App(){
             const login ={name, password, score}
             console.log(login)
 
-            fetch("http://localhost:8080/update/" + name +"/"+ password,{
+            fetch("https://speed-typing-game-play.herokuapp.com/update/" + name +"/"+ password,{
                 method:"PUT",
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify(login)
@@ -64,18 +64,13 @@ export default function App(){
                 setShowLogin(false)
 
                 
-                fetch("http://localhost:8080/getTopPlayers")
+                fetch("https://speed-typing-game-play.herokuapp.com/getTopPlayers")
             .then(res=>res.json())
             .then((result)=> { 
                 setTopPlayers(result)
             })
 
             })    
-
-
-
-
-            
 
     }
 
@@ -109,14 +104,14 @@ export default function App(){
             const login ={name, password}
             console.log(login)
 
-            fetch("http://localhost:8080/update/" + name +"/"+ password,{
+            fetch("https://speed-typing-game-play.herokuapp.com/update/" + name +"/"+ password,{
                 method:"PUT",
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify(login)
             
             }).then((response)=>{
                 if (!response.ok) {
-                    fetch("http://localhost:8080/add",{
+                    fetch("https://speed-typing-game-play.herokuapp.com/add",{
                         method:"POST",
                         headers:{"Content-Type":"application/json"},
                         body:JSON.stringify(login)
@@ -152,7 +147,7 @@ export default function App(){
             const login ={name, password}
             console.log(login)
 
-            fetch("http://localhost:8080/update/" + name +"/"+ password,{
+            fetch("https://speed-typing-game-play.herokuapp.com/update/" + name +"/"+ password,{
                 method:"PUT",
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify(login)
@@ -181,10 +176,11 @@ export default function App(){
 
 
             useEffect(()=> {
-                fetch("http://localhost:8080/getTopPlayers")
+                fetch("https://speed-typing-game-play.herokuapp.com/getTopPlayers")
             .then(res=>res.json())
             .then((result)=> { 
                 setTopPlayers(result)
+                console.log(result)
             })
             },[])
 
