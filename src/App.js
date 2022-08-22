@@ -64,7 +64,7 @@ export default function App(){
                 setShowLogin(false)
 
                 
-                fetch("https://speed-typing-game-play.herokuapp.com/getTopPlayers")
+                fetch("https://speed-typing-game-play.herokuapp.com/getAll")
             .then(res=>res.json())
             .then((result)=> { 
                 setTopPlayers(result)
@@ -102,7 +102,7 @@ export default function App(){
         function handleClickSignUp(e){
             e.preventDefault()
             const login ={name, password}
-            console.log(login)
+
 
             fetch("https://speed-typing-game-play.herokuapp.com/update/" + name +"/"+ password,{
                 method:"PUT",
@@ -117,7 +117,7 @@ export default function App(){
                         body:JSON.stringify(login)
                     
                     }).then(()=>{
-                        console.log("New student added")
+
                         if(showSignUp)
                         setShowSignUp(false)
                     })
@@ -138,14 +138,13 @@ export default function App(){
                 setShowSignUp(false)
                 setShowLogin(true)
             }
-            
 
         }
 
         function handleClickLogin(e){
             e.preventDefault()
             const login ={name, password}
-            console.log(login)
+
 
             fetch("https://speed-typing-game-play.herokuapp.com/update/" + name +"/"+ password,{
                 method:"PUT",
@@ -160,7 +159,6 @@ export default function App(){
                 else
                 setShowLogin(false)
 
-                
             })
         }
 
@@ -176,15 +174,14 @@ export default function App(){
 
 
             useEffect(()=> {
-                fetch("https://speed-typing-game-play.herokuapp.com/getTopPlayers")
+                fetch("http:https://speed-typing-game-play.herokuapp.com/getAll")
             .then(res=>res.json())
             .then((result)=> { 
                 setTopPlayers(result)
-                console.log(result)
             })
             },[])
 
-            console.log(topPlayers)
+
 
             const topPlayersList = topPlayers.map(topplayers => {
                 return<h3> {topplayers.name +"     -     "}     {topplayers.score}</h3>
@@ -283,7 +280,7 @@ export default function App(){
 
         
          <div>
-            <h1 className="top-scores">Top Scorers</h1>
+            <h1 className="top-scores">Scores</h1>
          </div>   
            <div>
             {topPlayersList}
