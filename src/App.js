@@ -50,7 +50,7 @@ export default function App(){
             const login ={name, password, score}
             console.log(login)
 
-            fetch("http://127.0.0.1:8000/players",{
+            fetch("https://speedtyping-game-app.herokuapp.com/players",{
                 method:"PUT",
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify(login)
@@ -64,7 +64,7 @@ export default function App(){
                 setShowLogin(false)
 
                 
-                fetch("http://127.0.0.1:8000/players")
+                fetch("https://speedtyping-game-app.herokuapp.com/players")
             .then(res=>res.json())
             .then((result)=> { 
                 setTopPlayers(result)
@@ -104,14 +104,14 @@ export default function App(){
             const login ={name, password}
 
 
-            fetch("http://127.0.0.1:8000/players",{
+            fetch("https://speedtyping-game-app.herokuapp.com/players",{
                 method:"PUT",
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify(login)
             
             }).then((response)=>{
                 if (!response.ok) {
-                    fetch("http://127.0.0.1:8000/players",{
+                    fetch("https://speedtyping-game-app.herokuapp.com/players",{
                         method:"POST",
                         headers:{"Content-Type":"application/json"},
                         body:JSON.stringify(login)
@@ -146,7 +146,7 @@ export default function App(){
             const login ={name, password}
 
 
-            fetch("http://127.0.0.1:8000/players",{
+            fetch("https://speedtyping-game-app.herokuapp.com/players",{
                 method:"PUT",
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify(login)
@@ -174,7 +174,7 @@ export default function App(){
 
 
             useEffect(()=> {
-                fetch("http://127.0.0.1:8000/players")
+                fetch("https://speedtyping-game-app.herokuapp.com/players")
             .then(res=>res.json())
             .then((result)=> { 
                 setTopPlayers(result)
